@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewladokTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewladokLabel_betyg}"/>
+                    <h:outputText value="#{ladokController.selected.betyg}" title="#{bundle.ViewladokTitle_betyg}"/>
+                    <h:outputText value="#{bundle.ViewladokLabel_datum}"/>
+                    <h:outputText value="#{ladokController.selected.datum}" title="#{bundle.ViewladokTitle_datum}"/>
+                    <h:outputText value="#{bundle.ViewladokLabel_provNr}"/>
+                    <h:outputText value="#{ladokController.selected.provNr}" title="#{bundle.ViewladokTitle_provNr}"/>
+                    <h:outputText value="#{bundle.ViewladokLabel_termin}"/>
+                    <h:outputText value="#{ladokController.selected.termin}" title="#{bundle.ViewladokTitle_termin}"/>
+                    <h:outputText value="#{bundle.ViewladokLabel_kursKod}"/>
+                    <h:outputText value="#{ladokController.selected.kursKod}" title="#{bundle.ViewladokTitle_kursKod}"/>
+                    <h:outputText value="#{bundle.ViewladokLabel_idealUser}"/>
+                    <h:outputText value="#{ladokController.selected.idealUser}" title="#{bundle.ViewladokTitle_idealUser}"/>
+                    <h:outputText value="#{bundle.ViewladokLabel_id}"/>
+                    <h:outputText value="#{ladokController.selected.id}" title="#{bundle.ViewladokTitle_id}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ladokController.destroyAndView}" value="#{bundle.ViewladokDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewladokEditLink}"/>
+                <br />
+                <h:commandLink action="#{ladokController.prepareCreate}" value="#{bundle.ViewladokCreateLink}" />
+                <br />
+                <h:commandLink action="#{ladokController.prepareList}" value="#{bundle.ViewladokShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewladokIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

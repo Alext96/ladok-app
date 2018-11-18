@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditladokTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditladokLabel_betyg}" for="betyg" />
+                    <h:inputText id="betyg" value="#{ladokController.selected.betyg}" title="#{bundle.EditladokTitle_betyg}" />
+                    <h:outputLabel value="#{bundle.EditladokLabel_datum}" for="datum" />
+                    <h:inputText id="datum" value="#{ladokController.selected.datum}" title="#{bundle.EditladokTitle_datum}" />
+                    <h:outputLabel value="#{bundle.EditladokLabel_provNr}" for="provNr" />
+                    <h:inputText id="provNr" value="#{ladokController.selected.provNr}" title="#{bundle.EditladokTitle_provNr}" />
+                    <h:outputLabel value="#{bundle.EditladokLabel_termin}" for="termin" />
+                    <h:inputText id="termin" value="#{ladokController.selected.termin}" title="#{bundle.EditladokTitle_termin}" />
+                    <h:outputLabel value="#{bundle.EditladokLabel_kursKod}" for="kursKod" />
+                    <h:inputText id="kursKod" value="#{ladokController.selected.kursKod}" title="#{bundle.EditladokTitle_kursKod}" />
+                    <h:outputLabel value="#{bundle.EditladokLabel_idealUser}" for="idealUser" />
+                    <h:inputText id="idealUser" value="#{ladokController.selected.idealUser}" title="#{bundle.EditladokTitle_idealUser}" />
+                    <h:outputLabel value="#{bundle.EditladokLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{ladokController.selected.id}" title="#{bundle.EditladokTitle_id}" />
+                </h:panelGrid>
+                <h:commandLink action="#{ladokController.update}" value="#{bundle.EditladokSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditladokViewLink}"/>
+                <br />
+                <h:commandLink action="#{ladokController.prepareList}" value="#{bundle.EditladokShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditladokIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
